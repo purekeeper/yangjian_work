@@ -9,9 +9,8 @@
         <param-name>contextConfigLocation</param-name>
         <param-value>classpath:applicationContext.xml</param-value>
     </context-param>
-    <listener>
-        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
-    </listener>
+
+
     <filter>
         <filter-name>encodingFilter</filter-name>
         <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
@@ -33,18 +32,26 @@
     <servlet>
         <servlet-name>springmvc</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+         <init-param>
+                <param-name>contextConfigLocation</param-name>
+            <param-value>/WEB-INF/springmvc-servlet.xml</param-value>
+        </init-param>
         <load-on-startup>1</load-on-startup>
     </servlet>
 
     <servlet-mapping>
         <servlet-name>springmvc</servlet-name>
-        <url-pattern>/*</url-pattern>
+        <url-pattern>/</url-pattern>
     </servlet-mapping>
-
+    <!--  &lt;!&ndash; 指定Spring Bean的配置文件所在目录。默认配置在WEB-INF目录下 &ndash;&gt;
+      <context-param>
+          <param-name>contextConfigLocation</param-name>
+          <param-value>classpath:config/applicationContext.xml</param-value>
+      </context-param>-->
     <session-config>
         <session-timeout>30</session-timeout>
     </session-config>
     <welcome-file-list>
-        <welcome-file>index.jsp</welcome-file>
+        <welcome-file>index.ftl</welcome-file>
     </welcome-file-list>
 </web-app>
