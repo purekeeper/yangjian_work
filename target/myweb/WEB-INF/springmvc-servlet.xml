@@ -22,33 +22,31 @@
     <bean id="freemarkerConfiguration" class="org.springframework.beans.factory.config.PropertiesFactoryBean">
         <property name="location" value="classpath:conf/freemarker.properties"/>
     </bean>
-    <!-- 配置freeMarker模板加載地址 -->
+    <bean id="fmXmlEscape" class="freemarker.template.utility.XmlEscape"/>
+    <!-- 配置freeMarker視圖解析器 -->
+    <bean id="viewResolverFtl" class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
+        <property name="viewClass" value="org.springframework.web.servlet.view.freemarker.FreeMarkerView"/>
+        <property name="contentType" value="text/html; charset=utf-8"/>
+        <property name="cache" value="true"/>
+        <property name="suffix" value=".ftl"/>
+        <property name="order" value="0"/>
+    </bean>
+    <!-- 配置freeMarker的模板路径 -->
     <bean id="freemarkerConfig" class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
-        <!-- 視圖解析器會在/WEB-INF/ftl/路徑下掃描視圖文件 -->
         <property name="templateLoaderPath" value="/WEB-INF/views/"/>
         <property name="freemarkerVariables">
             <map>
                 <entry key="xml_escape" value-ref="fmXmlEscape"/>
             </map>
         </property>
-    </bean>
-    <bean id="fmXmlEscape" class="freemarker.template.utility.XmlEscape"/>
-    <!-- 配置freeMarker視圖解析器 -->
-    <bean id="freemakerViewResolver" class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
-        <property name="viewClass" value="org.springframework.web.servlet.view.freemarker.FreeMarkerView"/>
-        <!-- 掃描路徑內所有以ftl結尾的文件 -->
-        <property name="viewNames">
-            <array>
-                <value>*.ftl</value>
-            </array>
+        <property name="defaultEncoding">
+            <value>utf-8</value>
         </property>
-        <property name="contentType" value="text/html; charset=UTF-8"/>
-        <property name="exposeRequestAttributes" value="true"/>
-        <property name="exposeSessionAttributes" value="true"/>
-        <property name="exposeSpringMacroHelpers" value="true"/>
-        <property name="requestContextAttribute" value="request"/>
-        <!-- 給視圖解析器配置優先級，你可以給之前jsp視圖解析器的值配為2 -->
-        <property name="order" value="0"/>
+        <property name="freemarkerSettings">
+            <props>
+                <prop key="template_update_delay">3600</prop>
+            </props>
+        </property>
     </bean>
     <!--静态资源配置-->
     <!-- <mvc:default-servlet-handler/>-->

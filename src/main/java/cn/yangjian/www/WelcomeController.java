@@ -54,8 +54,6 @@ public class WelcomeController {
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String showDefaultPage(Model model) {
-
-
       /*  ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("index");
         modelAndView.addObject("welcome", "你好,坚果!!!!");
@@ -63,7 +61,14 @@ public class WelcomeController {
         //return modelAndView;
         // return "register";
        /* model.addAttribute("welcome","hello jianguo");*/
-        return "redirect:register";
+        //return "timer";
+          return "timer";
+        //return "redirect:timer";
+    }
+
+    @RequestMapping(value = "/timer", method = RequestMethod.GET)
+    public String dashPage(Model model) {
+        return "timer";
     }
 
     @RequestMapping(value = "/register", method = RequestMethod.GET)
