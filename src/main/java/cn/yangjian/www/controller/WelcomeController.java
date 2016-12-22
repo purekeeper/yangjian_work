@@ -1,4 +1,4 @@
-package cn.yangjian.www;
+package cn.yangjian.www.controller;
 
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
@@ -52,24 +52,16 @@ public class WelcomeController {
         return "showprofile";
     }
 
-    @RequestMapping(value = "/", method = RequestMethod.GET)
-    public String showDefaultPage(Model model) {
-      /*  ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("index");
-        modelAndView.addObject("welcome", "你好,坚果!!!!");
-        return modelAndView;*/
-        //return modelAndView;
-        // return "register";
-       /* model.addAttribute("welcome","hello jianguo");*/
-        //return "timer";
-          return "timer";
-        //return "redirect:timer";
-    }
 
-    @RequestMapping(value = "/timer", method = RequestMethod.GET)
+
+   /* @RequestMapping(value = "/timerdash", method = RequestMethod.GET)
     public String dashPage(Model model) {
+        JSONArray jsonJobs = HttpUtil.doHttpGet("127.0.0.1:8080/getJobs");
+        List<JobValue> jobs = (List<JobValue>) JSONArray.toCollection(jsonJobs);
+        model.addAttribute("jobs", jobs);
+
         return "timer";
-    }
+    }*/
 
     @RequestMapping(value = "/register", method = RequestMethod.GET)
     public String register(Model model) {

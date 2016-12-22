@@ -3,6 +3,7 @@ package cn.yangjian.www.httputil;
 /**
  * Created by yangjian on 16-12-21.
  */
+
 import net.sf.json.JSONObject;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -97,7 +98,7 @@ public class HttpUtil {
     }
 
     public static JSONObject doHttpGet(String url) {
-        JSONObject jsonResutl = null;
+        JSONObject jsonResutl = new JSONObject();
         CloseableHttpClient httpClient = HttpClients.createDefault();
 
         HttpGet getRequest = new HttpGet(url);
@@ -114,6 +115,7 @@ public class HttpUtil {
                 String apiOutput = null;
                 apiOutput = EntityUtils.toString(httpEntity);
                 jsonResutl = JSONObject.fromObject(apiOutput);
+                ///**/System.out.println(jsonResutl);
             }
         } catch (IOException e) {
             e.printStackTrace();
