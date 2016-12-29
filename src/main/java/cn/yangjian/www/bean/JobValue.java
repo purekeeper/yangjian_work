@@ -13,48 +13,46 @@ public class JobValue implements Serializable {
     private int jobBizId;
     private String jobEntityId;
     private long executeTime;
-    private String jobState;
 
     public JobValue() {
     }
 
-    public JobValue(int jobBizId, String jobEntityId, long executeTime, String jobState) {
+    public JobValue(int jobBizId, String jobEntityId, long executeTime) {
         this.jobBizId = jobBizId;
         this.jobEntityId = jobEntityId;
         this.executeTime = executeTime;
-        this.jobState = jobState;
-    }
-
-    public void setJobBizId(int jobBizId) {
-        this.jobBizId = jobBizId;
-    }
-
-    public void setJobEntityId(String jobEntityId) {
-        this.jobEntityId = jobEntityId;
-    }
-
-    public void setExecuteTime(long executeTime) {
-        this.executeTime = executeTime;
-    }
-
-    public void setJobState(String jobState) {
-        this.jobState = jobState;
     }
 
     public int getJobBizId() {
         return jobBizId;
     }
 
+    public void setJobBizId(int jobBizId) {
+        this.jobBizId = jobBizId;
+    }
+
     public String getJobEntityId() {
         return this.jobEntityId;
+    }
+
+    public void setJobEntityId(String jobEntityId) {
+        this.jobEntityId = jobEntityId;
     }
 
     public long getExecuteTime() {
         return executeTime;
     }
 
-    public String getJobState() {
-        return jobState;
+    public void setExecuteTime(long executeTime) {
+        this.executeTime = executeTime;
+    }
+
+    @Override
+    public String toString() {
+        return "JobValue{" +
+                "executeTime=" + executeTime +
+                ", jobBizId=" + jobBizId +
+                ", JobEntityId='" + jobEntityId + '\'' +
+                '}';
     }
 }
-

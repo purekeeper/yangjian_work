@@ -16,12 +16,12 @@ import java.util.List;
 @Controller
 public class UserDashBoardController {
 
-    @RequestMapping(value = "/timerdash", method = RequestMethod.GET)
+    @RequestMapping(value = "/timerservicemonitor", method = RequestMethod.GET)
     public String dashPage(Model model) {
-        JSONObject jsonMap = HttpUtil.doHttpGet("http://127.0.0.1:8080/schedule-1.0/machineinfo");
+        JSONObject jsonMap = HttpUtil.doHttpGet("http://127.0.0.1:8070/schedule-1.0/machineinfo");
         List<MachineLoadInfo> machines = (List<MachineLoadInfo>) jsonMap.get("data");
         model.addAttribute("machines", machines);
-        return "timer";
+        return "timerservicemonitor";
     }
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
@@ -35,6 +35,8 @@ public class UserDashBoardController {
        /* model.addAttribute("welcome","hello jianguo");*/
         //return "timer";
         // return "timer";
-        return "redirect:timerdash";
+        //return "redirect:timerservicemonitor";
+        return "redirect:jobcms";
     }
+
 }

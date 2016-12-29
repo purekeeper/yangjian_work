@@ -51,17 +51,17 @@
         <!-- End Small Nav -->
 
         <!-- Message OK -->
-       <#-- <div class="msg msg-ok">
-            <p><strong>Your file was uploaded succesifully!</strong></p>
-            <a href="#" class="close">close</a>
-        </div>
-        <!-- End Message OK &ndash;&gt;
+    <#-- <div class="msg msg-ok">
+         <p><strong>Your file was uploaded succesifully!</strong></p>
+         <a href="#" class="close">close</a>
+     </div>
+     <!-- End Message OK &ndash;&gt;
 
-        <!-- Message Error &ndash;&gt;
-        <div class="msg msg-error">
-            <p><strong>You must select a file to upload first!</strong></p>
-            <a href="#" class="close">close</a>
-        </div>-->
+     <!-- Message Error &ndash;&gt;
+     <div class="msg msg-error">
+         <p><strong>You must select a file to upload first!</strong></p>
+         <a href="#" class="close">close</a>
+     </div>-->
         <!-- End Message Error -->
         <br/>
         <!-- Main -->
@@ -77,9 +77,11 @@
                     <div class="box-head">
                         <h2 class="left">Machine</h2>
                         <div class="right">
-                            <label>search articles</label>
-                            <input type="text" class="field small-field"/>
-                            <input type="submit" class="button" value="search"/>
+                            <form name="search" action="/queryjob" method="get">
+                                <label>search Job(暂时只支持根据实体id搜索)</label>
+                                <input name="entityId" type="text" class="field small-field"/>
+                                <input type="submit" class="button" value="search"/>
+                            </form>
                         </div>
                     </div>
                     <!-- End Box Head -->
@@ -97,44 +99,44 @@
                             </tr>-->
                             <tr>
                             <#-- <th width="13"><input type="checkbox" class="checkbox"/></th>-->
-                                <th>No</th>
-                                <th><h3>Address</h3></th>
-                                <th><h3>SliceCount</h3></th>
-                                <th><h3>TaskQueueEntityCount</h3></th>
-                                <th><h3>TaskQueueJobCount</h3></th>
-                                <th><h3>ScheduleJobCount</h3></th>
+                                <th><h3>No</h3></th>
+                                <th><h3>BizId</h3></th>
+                                <th><h3>EntityId</h3></th>
+                                <th><h3>ExecuteTime</h3></th>
+                                <th><h3>State</h3></th>
+                            <#-- <th><h3>wlistTotalJobs</h3></th>-->
                                 <th width="110" class="ac"><h3>Action</h3></th>
                             </tr>
-                        <#list machines as machine>
-                            <tr>
-                            <#-- <td><input type="checkbox" class="checkbox"/></td>-->
-                                <td align="center"><h3>${machine.no}</h3></td>
-                                <td align="center"><h3>${machine.address}</h3></td>
-                                <td align="center"><h3>${machine.sliceInfo}</h3></td>
-                                <td align="center"><h3>${machine.taskQueueInfo}</td>
-                                <td align="center"><h3>${machine.totalJobs}</td>
-                                <td align="center"><h3>${machine.scheduleInfo}</td>
-                                <td><a href="#" class="ico del">Stop</a><a href="#" class="ico edit">Start</a></td>
-                            </tr>
-                        </#list >
+                        <#if jobs??>
+                            <#list jobs as job>
+                                <tr>
+                                <#-- <td><input type="checkbox" class="checkbox"/></td>-->
+                                    <td align="center"><h3>${job.jobId}</h3></td>
+                                    <td align="center"><h3>${job.jobBizId}</h3></td>
+                                    <td align="center"><h3>${job.JobEntityId}</h3></td>
+                                    <td align="center"><h3>${job.executeTime}</td>
+                                    <td align="center"><h3>${job.jobState}</td>
+                                <#--                       <td align="center"><h3>${machine.wlistTotalJobs}</td>-->
+                                    <td><a href="#" class="ico del">Stop</a><a href="#" class="ico edit">Start</a></td>
+                                </tr>
+                            </#list >
+                        </#if>
                         </table>
-
-
                         <!-- Pagging -->
-                    <div class="pagging">
-                        <div class="left">Showing 1-12 of 44</div>
-                        <div class="right">
-                            <a href="#">Previous</a>
-                            <a href="#">1</a>
-                            <a href="#">2</a>
-                            <a href="#">3</a>
-                            <a href="#">4</a>
-                            <a href="#">245</a>
-                            <span>...</span>
-                            <a href="#">Next</a>
-                            <a href="#">View all</a>
+                        <div class="pagging">
+                            <div class="left">Showing 1-12 of 44</div>
+                            <div class="right">
+                                <a href="#">Previous</a>
+                                <a href="#">1</a>
+                                <a href="#">2</a>
+                                <a href="#">3</a>
+                                <a href="#">4</a>
+                                <a href="#">245</a>
+                                <span>...</span>
+                                <a href="#">Next</a>
+                                <a href="#">View all</a>
+                            </div>
                         </div>
-                    </div>
 
                     </div>
                     <!-- Table -->

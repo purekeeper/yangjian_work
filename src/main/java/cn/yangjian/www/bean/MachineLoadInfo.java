@@ -6,23 +6,25 @@ package cn.yangjian.www.bean;
  */
 public class MachineLoadInfo {
     //no ip:port slices taskqueue schedule jobs
-    private String address;
-    private int no;
-    private int sliceInfo;
-    private int taskQueueInfo;
-    private int scheduleInfo;
-    private int totalJobs;
+    private String address;//地址
+    private int no;//编号
+    private int sliceInfo;//分片
+    private int taskQueueEntityCount;//实体个数
+    private int scheduleCount;
+    private int taskQueuetotalJobs;
+    private int wlistTotalJobs;
 
-    public MachineLoadInfo(String address, int no, int sliceInfo, int taskQueueInfo, int scheduleInfo, int totalJobs) {
+    public MachineLoadInfo() {
+    }
+
+    public MachineLoadInfo(String address, int no, int sliceInfo, int taskQueueEntityCount, int scheduleCount, int taskQueuetotalJobs, int wlistTotalJobs) {
         this.address = address;
         this.no = no;
         this.sliceInfo = sliceInfo;
-        this.taskQueueInfo = taskQueueInfo;
-        this.scheduleInfo = scheduleInfo;
-        this.totalJobs = totalJobs;
-    }
-
-    public MachineLoadInfo() {
+        this.taskQueueEntityCount = taskQueueEntityCount;
+        this.scheduleCount = scheduleCount;
+        this.taskQueuetotalJobs = taskQueuetotalJobs;
+        this.wlistTotalJobs = wlistTotalJobs;
     }
 
     public String getAddress() {
@@ -49,27 +51,35 @@ public class MachineLoadInfo {
         this.sliceInfo = sliceInfo;
     }
 
-    public int getTaskQueueInfo() {
-        return taskQueueInfo;
+    public int getTaskQueueEntityCount() {
+        return taskQueueEntityCount;
     }
 
-    public void setTaskQueueInfo(int taskQueueInfo) {
-        this.taskQueueInfo = taskQueueInfo;
+    public void setTaskQueueEntityCount(int taskQueueEntityCount) {
+        this.taskQueueEntityCount = taskQueueEntityCount;
     }
 
-    public int getScheduleInfo() {
-        return scheduleInfo;
+    public int getScheduleCount() {
+        return scheduleCount;
     }
 
-    public void setScheduleInfo(int scheduleInfo) {
-        this.scheduleInfo = scheduleInfo;
+    public void setScheduleCount(int scheduleCount) {
+        this.scheduleCount = scheduleCount;
     }
 
-    public int getTotalJobs() {
-        return totalJobs;
+    public int getTaskQueuetotalJobs() {
+        return taskQueuetotalJobs;
     }
 
-    public void setTotalJobs(int totalJobs) {
-        this.totalJobs = totalJobs;
+    public void setTaskQueuetotalJobs(int taskQueuetotalJobs) {
+        this.taskQueuetotalJobs = taskQueuetotalJobs;
+    }
+
+    public int getWlistTotalJobs() {
+        return wlistTotalJobs;
+    }
+
+    public void setWlistTotalJobs(int wlistTotalJobs) {
+        this.wlistTotalJobs = wlistTotalJobs;
     }
 }

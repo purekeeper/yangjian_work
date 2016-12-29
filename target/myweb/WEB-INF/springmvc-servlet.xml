@@ -39,12 +39,10 @@
                 <entry key="xml_escape" value-ref="fmXmlEscape"/>
             </map>
         </property>
-        <property name="defaultEncoding">
-            <value>utf-8</value>
-        </property>
         <property name="freemarkerSettings">
             <props>
-                <prop key="template_update_delay">3600</prop>
+               <!-- <prop key="template_update_delay">3600</prop>-->
+                <prop key="defaultEncoding">UTF-8</prop>
             </props>
         </property>
     </bean>

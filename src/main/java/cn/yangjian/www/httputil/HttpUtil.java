@@ -98,11 +98,12 @@ public class HttpUtil {
     }
 
     public static JSONObject doHttpGet(String url) {
+        System.out.println(url);
         JSONObject jsonResutl = new JSONObject();
         CloseableHttpClient httpClient = HttpClients.createDefault();
-
+      //  RequestConfig requestConfig = RequestConfig.custom().setConnectionRequestTimeout(60 * 1000).setConnectTimeout(60 * 1000).setSocketTimeout(60 * 1000).build();
         HttpGet getRequest = new HttpGet(url);
-
+//        getRequest.setConfig(requestConfig);
         // getRequest.addHeader("accept", "application/json");
 
         HttpResponse response = null;
@@ -115,7 +116,7 @@ public class HttpUtil {
                 String apiOutput = null;
                 apiOutput = EntityUtils.toString(httpEntity);
                 jsonResutl = JSONObject.fromObject(apiOutput);
-                ///**/System.out.println(jsonResutl);
+              //  System.out.println(jsonResutl);
             }
         } catch (IOException e) {
             e.printStackTrace();
