@@ -15,10 +15,9 @@ import java.util.List;
  */
 @Controller
 public class UserDashBoardController {
-
     @RequestMapping(value = "/timerservicemonitor", method = RequestMethod.GET)
     public String dashPage(Model model) {
-        JSONObject jsonMap = HttpUtil.doHttpGet("http://127.0.0.1:8070/schedule-1.0/machineinfo");
+        JSONObject jsonMap = HttpUtil.doHttpGet("http://127.0.0.1:8060/machineinfo");
         List<MachineLoadInfo> machines = (List<MachineLoadInfo>) jsonMap.get("data");
         model.addAttribute("machines", machines);
         return "timerservicemonitor";
