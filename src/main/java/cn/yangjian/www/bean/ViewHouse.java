@@ -22,6 +22,23 @@ public class ViewHouse {
     private String commName;
     private String commAddr;
 
+    public ViewHouse(long id, String title, int area, int rooms, int halls, int price, int floor, int totalFloor, String publiser, String houseDesc, long publishTime, Date buildYear, String commName, String commAddr) {
+        this.id = id;
+        this.title = title;
+        this.area = area;
+        this.rooms = rooms;
+        this.halls = halls;
+        this.price = price;
+        this.floor = floor;
+        this.totalFloor = totalFloor;
+        this.publiser = publiser;
+        this.houseDesc = houseDesc;
+        this.publishTime = publishTime;
+        this.buildYear = buildYear;
+        this.commName = commName;
+        this.commAddr = commAddr;
+    }
+
     public long getId() {
         return id;
     }

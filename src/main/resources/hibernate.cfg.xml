@@ -21,6 +21,6 @@
         <mapping class="cn.yangjian.www.hibernatebean.HouseExt"/>
         <mapping class="cn.yangjian.www.hibernatebean.User"/>
         <mapping class="cn.yangjian.www.hibernatebean.Comm"/>
-        <!--  <mapping resource="User.hbm.xml"/>-->
+          <!--<mapping resource="work.hbm.xml"/>-->
     </session-factory>
 </hibernate-configuration>
